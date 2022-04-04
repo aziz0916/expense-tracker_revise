@@ -38,9 +38,9 @@ router.get('/:id/edit', (req, res) => {
   ])
     .then(([record, categories]) => {
       Category.findOne({ _id: record.categoryId })
-      .then(category => {
-        res.render('edit', { record, categories, categoryName: category.name })
-      })
+        .then(category => {
+          res.render('edit', { record, categories, categoryName: category.name })
+        })
     })
     .catch(error => console.log(error))
 })
@@ -58,6 +58,16 @@ router.put('/:id', (req, res) => {
       record.amount = amount
       record.save()
     })
+    .then(() => res.redirect('/'))
+    .catch(error => console.log(error))
+})
+
+router.delete('/:id', (req, res) => {
+  const userId = '624877c5c6e46b7ce5f03405'
+  const _id = req.params.id
+
+  return Record.findOne({ _id, userId })
+    .then(record => record.remove())
     .then(() => res.redirect('/'))
     .catch(error => console.log(error))
 })
