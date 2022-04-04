@@ -1,10 +1,10 @@
-<form action="/records" method="POST" class="w-50 m-auto pt-5">
+<form action="/records/{{record._id}}?_method=PUT" method="POST" class="w-50 m-auto pt-5">
   <div class="form-group row">
     <label class="col-sm-2 col-form-label text-muted font-weight-bolder px-0 text-center" style="font-size:14px;"><span
         style="color:red;">*</span>必填欄位
     </label>
     <label class="col-sm-10 col-form-label text-muted font-weight-bolder px-0 text-center"
-      style="font-size:22px;">請輸入你的支出
+      style="font-size:22px;">請修改你的支出
     </label>
   </div>
   <div class="form-group row">
@@ -12,14 +12,14 @@
         style="color:red;">*</span> :
     </label>
     <div class="col-sm-10">
-      <input type="text" class="form-control" id="name" name="name" required>
+      <input type="text" class="form-control" id="name" name="name" value="{{record.name}}" required>
     </div>
   </div>
   <div class="form-group row">
     <label for="date" class="col-sm-2 col-form-label btn-warning text-muted font-weight-bolder px-0 text-center">日期<span
         style="color:red;">*</span> :</label>
     <div class="col-sm-10">
-      <input type="date" class="form-control" id="date" name="date" value="2019-04-23" required>
+      <input type="date" class="form-control" id="date" name="date" value="2019-04-23" value="{{record.date}}" required>
     </div>
   </div>
   <div class="form-group row">
@@ -28,9 +28,10 @@
         style="color:red;">*</span> :</label>
     <div class="col-sm-10">
       <select class="form-control" id="categoryId" name="categoryId" required>
-        <option value="none" selected disabled hidden>Select</option>
         {{#each categories}}
-        <option value="{{this._id}}">{{this.name}}</option>
+        <option value="{{this._id}}" {{selected this.name ../categoryName}}>
+          {{this.name}}
+        </option>
         {{/each}}
       </select>
     </div>
@@ -40,12 +41,12 @@
       class="col-sm-2 col-form-label btn-warning text-muted font-weight-bolder px-0 text-center">金額<span
         style="color:red;">*</span> :</label>
     <div class="col-sm-10">
-      <input type="number" class="form-control" id="amount" name="amount" required>
+      <input type="number" class="form-control" id="amount" name="amount" value="{{record.amount}}" required>
     </div>
   </div>
   <div class="form-group row">
     <div class="col-sm-12 text-center">
-      <button type="submit" class="btn btn-warning text-muted font-weight-bolder btn-lg">新增支出</button>
+      <button type="submit" class="btn btn-warning text-muted font-weight-bolder btn-lg">送出</button>
     </div>
   </div>
 </form>

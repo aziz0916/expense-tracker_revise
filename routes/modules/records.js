@@ -15,17 +15,51 @@ router.get('/new', (req, res) => {
 
 router.post('/', (req, res) => {
   const userId = '624877c5c6e46b7ce5f03405'
-  const { name, date, category, amount } = req.body
-  
+  const { name, date, categoryId, amount } = req.body
+
   return Record.create({
     name,
     date,
     amount,
     userId,
-    categoryId: category
+    categoryId
   })
-  .then(() => res.redirect('/'))
-  .catch(error => console.log(error))
+    .then(() => res.redirect('/'))
+    .catch(error => console.log(error))
+})
+
+router.get('/:id/edit', (req, res) => {
+  const userId = '624877c5c6e46b7ce5f03405'
+  const _id = req.params.id
+
+  return Promise.all([
+    Record.findOne({ _id, userId }).lean(),
+    Category.find().lean()
+  ])
+    .then(([record, categories]) => {
+      Category.findOne({ _id: record.categoryId })
+      .then(category => {
+        res.render('edit', { record, categories, categoryName: category.name })
+      })
+    })
+    .catch(error => console.log(error))
+})
+
+router.put('/:id', (req, res) => {
+  const userId = '624877c5c6e46b7ce5f03405'
+  const _id = req.params.id
+  const { name, date, categoryId, amount } = req.body
+
+  return Record.findOne({ _id, userId })
+    .then(record => {
+      record.name = name
+      record.date = date
+      record.categoryId = categoryId
+      record.amount = amount
+      record.save()
+    })
+    .then(() => res.redirect('/'))
+    .catch(error => console.log(error))
 })
 
 module.exports = router
