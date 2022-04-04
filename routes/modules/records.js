@@ -10,7 +10,7 @@ router.get('/new', (req, res) => {
     .then(categories => {
       res.render('new', { categories })
     })
-    .catch(error => console.log(error))
+    .catch(err => console.log(err))
 })
 
 router.post('/', (req, res) => {
@@ -25,7 +25,7 @@ router.post('/', (req, res) => {
     categoryId
   })
     .then(() => res.redirect('/'))
-    .catch(error => console.log(error))
+    .catch(err => console.log(err))
 })
 
 router.get('/:id/edit', (req, res) => {
@@ -42,7 +42,7 @@ router.get('/:id/edit', (req, res) => {
           res.render('edit', { record, categories, categoryName: category.name })
         })
     })
-    .catch(error => console.log(error))
+    .catch(err => console.log(err))
 })
 
 router.put('/:id', (req, res) => {
@@ -59,7 +59,7 @@ router.put('/:id', (req, res) => {
       record.save()
     })
     .then(() => res.redirect('/'))
-    .catch(error => console.log(error))
+    .catch(err => console.log(err))
 })
 
 router.delete('/:id', (req, res) => {
@@ -69,7 +69,7 @@ router.delete('/:id', (req, res) => {
   return Record.findOne({ _id, userId })
     .then(record => record.remove())
     .then(() => res.redirect('/'))
-    .catch(error => console.log(error))
+    .catch(err => console.log(err))
 })
 
 module.exports = router

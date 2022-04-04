@@ -15,8 +15,8 @@ async function createSeed(userId, record, categoryName) {
     record.userId = userId
     record.categoryId = categoryId
     await Record.create(record)
-  } catch (error) {
-    console.log(error)
+  } catch (err) {
+    console.log(err)
   }
 }
 
@@ -31,7 +31,7 @@ db.once('open', async () => {
     }
     console.log('done')
     process.exit()
-  } catch (error) {
-    console.log(error)
+  } catch (err) {
+    console.log(err)
   }
 })

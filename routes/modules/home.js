@@ -47,7 +47,7 @@ router.get('/', (req, res) => {
           res.render('index', { records, totalAmount, sort: name })
         })
     })
-    .catch(error => console.log(error))
+    .catch(err => console.log(err))
 })
 
 module.exports = router
