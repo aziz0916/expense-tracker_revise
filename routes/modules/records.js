@@ -14,7 +14,7 @@ router.get('/new', (req, res) => {
 })
 
 router.post('/', (req, res) => {
-  const userId = '624877c5c6e46b7ce5f03405'
+  const userId = req.user._id
   const { name, date, categoryId, amount } = req.body
 
   return Record.create({
@@ -29,7 +29,7 @@ router.post('/', (req, res) => {
 })
 
 router.get('/:id/edit', (req, res) => {
-  const userId = '624877c5c6e46b7ce5f03405'
+  const userId = req.user._id
   const _id = req.params.id
 
   return Promise.all([
@@ -46,7 +46,7 @@ router.get('/:id/edit', (req, res) => {
 })
 
 router.put('/:id', (req, res) => {
-  const userId = '624877c5c6e46b7ce5f03405'
+  const userId = req.user._id
   const _id = req.params.id
   const { name, date, categoryId, amount } = req.body
 
@@ -63,7 +63,7 @@ router.put('/:id', (req, res) => {
 })
 
 router.delete('/:id', (req, res) => {
-  const userId = '624877c5c6e46b7ce5f03405'
+  const userId = req.user._id
   const _id = req.params.id
 
   return Record.findOne({ _id, userId })

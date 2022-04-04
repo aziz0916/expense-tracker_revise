@@ -6,13 +6,15 @@ const Category = require('../../models/category')
 
 router.get('/', (req, res) => {
   const name = req.query.sort
+  const userId = req.user._id
+
   Category.findOne({ name })
     .then(category => {
       let categoryId = ''
       const sortResult = category ? {
         categoryId: category._id
       } : {}
-      Record.find(sortResult)
+      Record.find({ $and: [sortResult, { userId }] })
         .lean()
         .then(records => {
           records.forEach(record => {
