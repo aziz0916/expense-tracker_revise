@@ -1,12 +1,12 @@
 <div class="col-4 my-4 mx-auto">
   <form action="/">
     <select name="sort" class="w-100 rounded" style="height: 38px;" onchange="this.form.submit();">
-      <option value="0">類別</option>
-      <option value="1">家居物業</option>
-      <option value="2">交通出行</option>
-      <option value="3">休閒娛樂</option>
-      <option value="4">餐飲食品</option>
-      <option value="5">其他</option>
+      <option value="類別" {{selected sort '類別' }}>類別</option>
+      <option value="家居物業" {{selected sort '家居物業' }}>家居物業</option>
+      <option value="交通出行" {{selected sort '交通出行' }}>交通出行</option>
+      <option value="休閒娛樂" {{selected sort '休閒娛樂' }}>休閒娛樂</option>
+      <option value="餐飲食品" {{selected sort '餐飲食品' }}>餐飲食品</option>
+      <option value="其他" {{selected sort '其他' }}>其他</option>
     </select>
   </form>
 </div>
@@ -17,40 +17,42 @@
       總金額：
     </span>
     <span class="text-secondary text-warning" style="font-size:40px;">
-      25260
+      {{totalAmount}}
     </span>
   </p>
 </div>
 
 <ul class="list-group w-50 m-auto">
+  {{#each records}}
   <li class="list-group-item">
     <div class="row">
       <div class="col-auto my-auto px-1">
-        <i class="{{categoryIcon}} fa-3x text-primary"></i>
+        <i class="{{this.categoryIcon}} fa-2x text-primary"></i>
       </div>
       <div class="col-auto mr-auto px-0">
         <h4 style="display: inline; vertical-align: middle;">
-          午餐
+          {{this.name}}
         </h4>
         <p class="mb-1">
-          2019/04/23
+          {{this.date}}
         </p>
       </div>
       <div class="col-auto my-auto">
         <span style="display: inline; vertical-align: middle; font-size:20px;">
-          60
+          {{this.amount}}
         </span>
       </div>
       <div class="col-auto my-auto">
-        <a class="btn btn-success" href="./todos/{{ this._id }}/edit">修改</a>
-        <form action="./todos/{{ this._id }}?_method=DELETE" method="POST" style="display: inline;">
+        <a class="btn btn-success" href="./records/{{ this._id }}/edit">修改</a>
+        <form action="./records/{{ this._id }}?_method=DELETE" method="POST" style="display: inline;">
           <button class="btn btn-danger" type="submit">刪除</button>
         </form>
       </div>
     </div>
   </li>
+  {{/each}}
 </ul>
 
 <div class="col-4 my-5 mx-auto text-center">
-  <a href="/restaurants/new" class="btn btn-warning text-muted font-weight-bolder btn-lg">新增支出</a>
+  <a href="/records/new" class="btn btn-warning text-muted font-weight-bolder btn-lg">新增支出</a>
 </div>
