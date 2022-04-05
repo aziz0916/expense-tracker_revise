@@ -37,6 +37,17 @@ router.get('/:id/edit', (req, res) => {
     Category.find().lean()
   ])
     .then(([record, categories]) => {
+      //需將record.date的value調整為YY-MM-DD格式才能在Handlebars的input中的value顯示，MM與DD必須為兩位數，假如不足兩位需在前面補0
+      const year = (record.date.getFullYear()).toString()
+      let month = (record.date.getMonth() + 1).toString()
+      let date = (record.date.getDate()).toString()
+      if (month.length < 2) {
+        month = '0' + month
+      }
+      if (date.length < 2) {
+        date = '0' + date
+      }
+      record.date = year + '-' + month + '-' + date
       Category.findOne({ _id: record.categoryId })
         .then(category => {
           res.render('edit', { record, categories, categoryName: category.name })
