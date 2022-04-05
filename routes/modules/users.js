@@ -41,7 +41,8 @@ router.post('/register', (req, res) => {
     .then(user => {
       if (user) {
         errors.push({ message: '這個 Email 已經註冊過了。' })
-        res.render('register', {
+        return res.render('register', {
+          errors,
           name,
           email,
           password,
