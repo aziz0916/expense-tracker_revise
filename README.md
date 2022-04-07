@@ -2,12 +2,12 @@
 此家庭記帳本是一個網路記帳工具，可讓使用者新增、修改與刪除支出紀錄，除了可以計算支出紀錄總金額，也可以透過支出紀錄類別來進行篩選
 
 ## 專案畫面
-![register](https://github.com/aziz0916/expense-tracker/blob/main/public/images/register.png)
-![login](https://github.com/aziz0916/expense-tracker/blob/main/public/images/login.png)
-![Index](https://github.com/aziz0916/expense-tracker/blob/main/public/images/index.png)
-![New](https://github.com/aziz0916/expense-tracker/blob/main/public/images/new.png)
-![Edit](https://github.com/aziz0916/expense-tracker/blob/main/public/images/edit.png)
-![Sort](https://github.com/aziz0916/expense-tracker/blob/main/public/images/sort.png)
+![register](https://github.com/aziz0916/expense-tracker_revise/blob/main/public/images/register.png)
+![login](https://github.com/aziz0916/expense-tracker_revise/blob/main/public/images/login.png)
+![Index](https://github.com/aziz0916/expense-tracker_revise/blob/main/public/images/index.png)
+![New](https://github.com/aziz0916/expense-tracker_revise/blob/main/public/images/new.png)
+![Edit](https://github.com/aziz0916/expense-tracker_revise/blob/main/public/images/edit.png)
+![Sort](https://github.com/aziz0916/expense-tracker_revise/blob/main/public/images/sort.png)
 
 ## 專案功能
 1. 使用者可以註冊帳號
@@ -41,12 +41,12 @@
 1. 開啟終端機(Terminal)，Clone 此專案至本機電腦
 
 ```
-git clone https://github.com/aziz0916/expense-tracker.git
+git clone https://github.com/aziz0916/expense-tracker_revise.git
 ```
 2. 進入存放此專案的資料夾
 
 ```
-cd expense-tracker
+cd expense-tracker_revise
 ```
 3. 安裝 npm 套件
 
