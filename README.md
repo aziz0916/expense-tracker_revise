@@ -24,18 +24,18 @@
    + 選擇「類別」會列出全部的支出
 
 ## 使用工具
-- [Visual Studio Code](https://visualstudio.microsoft.com/zh-hant/) - 開發環境
-- [Express](https://www.npmjs.com/package/express) - 應用程式架構
-- [Express-Handlebars](https://www.npmjs.com/package/express-handlebars) - 模板引擎
-- [MongoDB](https://www.mongodb.com/) - 資料庫
-- [Mongoose](https://www.npmjs.com/package/mongoose) - MongoDB 的 ODM 可以在程式中與資料庫溝通
-- [method-override](https://www.npmjs.com/package/method-override) - 增加除瀏覽器自帶的GET與POST以外的偽請求，增加介面語義化
-- [express-session](https://www.npmjs.com/package/express-session) - 儲存認證結果
-- [Passport](https://www.npmjs.com/package/passport) - 認證使用者
-- [passport-local](https://www.npmjs.com/package/passport-local) - 使用username和password方式進行身分驗證
-- [connect-flash](https://www.npmjs.com/package/connect-flash) - 製作系統訊息功能
-- [bcrypt.js](https://www.npmjs.com/package/bcryptjs) - 進行雜湊加密
-- [dotenv](https://www.npmjs.com/package/dotenv) - 將敏感資訊寫入環境變數
+- [Visual Studio Code](https://visualstudio.microsoft.com/zh-hant/) 1.66.0 - 開發環境
+- [Express](https://www.npmjs.com/package/express) 4.17.1 - 應用程式架構
+- [Express-Handlebars](https://www.npmjs.com/package/express-handlebars) 4.0.2 - 模板引擎
+- [MongoDB](https://www.mongodb.com/) 4.2.17 - 資料庫
+- [Mongoose](https://www.npmjs.com/package/mongoose) 6.1.6 - MongoDB 的 ODM 可以在程式中與資料庫溝通
+- [method-override](https://www.npmjs.com/package/method-override) 3.0.0 - 增加除瀏覽器自帶的GET與POST以外的偽請求，增加介面語義化
+- [express-session](https://www.npmjs.com/package/express-session) 1.17.1 - 儲存認證結果
+- [Passport](https://www.npmjs.com/package/passport) 0.4.1 - 認證使用者
+- [passport-local](https://www.npmjs.com/package/passport-local) 1.0.0 - 使用username和password方式進行身分驗證
+- [connect-flash](https://www.npmjs.com/package/connect-flash) 0.1.1 - 製作系統訊息功能
+- [bcrypt.js](https://www.npmjs.com/package/bcryptjs) 2.4.3 - 進行雜湊加密
+- [dotenv](https://www.npmjs.com/package/dotenv) 8.2.0 - 將敏感資訊寫入環境變數
 
 ## 安裝
 1. 開啟終端機(Terminal)，Clone 此專案至本機電腦
@@ -53,12 +53,18 @@ cd expense-tracker
 ```
 npm install
 ```
-4. 引入種子資料
+4. 將 .env.example 檔案名改成 .env，並將檔案中 SKIP 相關參數進行更改。
+5. 引入種子資料
 
 ```
 npm run seed
 ```
-5. 執行程式
+6. 測試種子資料
+
+| Name | Email | Password |
+| ------------- | :---: | -------- |
+| 廣志          | user1@example.com| 12345678  |
+7. 執行程式
 
 ```
 npm run dev
